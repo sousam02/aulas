@@ -11,14 +11,19 @@ class Funcionario
     //Métodos
     public function resumirCadFunc()
     {
-        return " $this->nome ";
+        return " $this->nome possui $this->numeroFilhos filho(s)";
     }
 
-    public function modificarNumFilhos()
+    public function modificarNumFilhos($numeroFilhos)
     {
         //afetar um atributo do objeto
+        $this->numeroFilhos = $numeroFilhos;
     }
 }
 
 $funcionario = new Funcionario();
+echo $funcionario->resumirCadFunc() . "<br>";
+
+$funcionario->modificarNumFilhos(3);
+
 echo $funcionario->resumirCadFunc();
