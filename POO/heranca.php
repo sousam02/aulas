@@ -39,11 +39,22 @@ class Veiculo
     {
         echo "acelerar";
     }
+
+    public function frear()
+    {
+        echo "frear";
+    }
 }
 echo "Carro: ";
+echo "<br>";
 $carro = new Carro("abc1234", "Branco");
 $carro->acelerar();
+echo "<br>";
+$carro->frear();
 echo "<hr>";
 echo "Moto: ";
+echo "<br>";
 $moto  = new Moto("def9988", "preta");
 $moto->empinar();
+echo "<br>";
+$moto->frear();
