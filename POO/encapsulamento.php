@@ -6,42 +6,26 @@ class Pai
     protected $sobrenome = "Silva";
     public $humor = "Feliz";
 
-    public function getNome()
+    public function __get($atributo)
     {
-        return $this->nome;
+        return $this->$atributo;
     }
 
-    public function setNome($nome)
+    public function __set($atributo, $valor)
     {
-        // Um exemplo de regra de negócio para modificar atributos de um objeto
-        if (strlen($nome) >= 3) {
-            $this->nome = $nome;
-        }
-    }
-
-    public function getSobrenome()
-    {
-        return $this->sobrenome;
-    }
-
-    public function setSobrenome($sobrenome)
-    {
-        // Um exemplo de regra de negócio para modificar atributos de um objeto
-        if (strlen($sobrenome) >= 3) {
-            $this->sobrenome = $sobrenome;
-        }
+        $this->$atributo = $valor;
     }
 }
 
 $pai = new Pai();
-echo $pai->getNome();
+echo $pai->__get("nome");
 echo "<br>";
-$pai->setNome("Moises");
+$pai->__set("nome", "Moises");
 echo "<br>";
-echo $pai->getNome();
+echo $pai->__get("nome");
 echo "<br>";
-echo $pai->getSobrenome();
+echo $pai->__get('sobrenome');
 echo "<br>";
-$pai->setSobrenome("Sousa");
+$pai->__set('sobrenome', "Sousa");
 echo "<br>";
-echo $pai->getSobrenome();
+echo $pai->__get('sobrenome');
